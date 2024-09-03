@@ -90,6 +90,82 @@
         ul {
             line-height: 1.6; /* Ajusta el interlineado entre los elementos <li> */
         }
+        .skills-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .skill {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .skill-bar {
+            width: 70%;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 10px;
+        }
+        .skill-level {
+            height: 10px;
+            background-color: #76c7c0;
+            border-radius: 10px;
+        }
+        .percentage {
+            min-width: 40px;
+            text-align: right;
+        }
+        .experience-item {
+            display: flex;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .experience-left {
+            background-color: #87ceeb; /* Skyblue similar al de Python */
+            color: white;
+            padding: 20px;
+            width: 30%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra verticalmente */
+            align-items: center;     /* Centra horizontalmente */
+        }
+        .experience-left h4 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: normal;
+        }
+        .experience-left p {
+            margin: 10px 0 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .experience-right {
+            padding: 20px;
+            width: 70%;
+        }
+        .experience-right h3 {
+            margin-top: 0;
+            font-size: 22px;
+            color: #333;
+        }
+        .experience-right p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #555;
+        }
+        .experience-right ul {
+            margin: 10px 0 0;
+            padding-left: 20px;
+            list-style-type: disc;
+            color: #555;
+        }
     </style>
     <script>
         function showSection(id) {
@@ -131,31 +207,72 @@
             <p>Soy una persona trabajadora con muchas ganas de adquirir nuevas habilidades y conocimientos en distintos ámbitos que me permitan crecer tanto personal como profesionalmente. Me gusta trabajar en equipo y la cooperación, sin perder la capacidad de gestionar tareas de forma independiente y proactiva.</p>
         </section>
         <section id="herramientas">
+            <h2>Especialidades</h2>
+            <div class="skills-container">
+                <div class="skill">
+                    <span>Python</span>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 90%;"></div>
+                    </div>
+                    <span class="percentage">90%</span>
+                </div>
+                <div class="skill">
+                    <span>SQL</span>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 80%;"></div>
+                    </div>
+                    <span class="percentage">80%</span>
+                </div>
+                <div class="skill">
+                    <span>Power BI</span>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 70%;"></div>
+                    </div>
+                    <span class="percentage">70%</span>
+                </div>
+                <div class="skill">
+                    <span>Git | GitHub</span>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 90%;"></div>
+                    </div>
+                    <span class="percentage">90%</span>
+                </div>
+            </div>
             <h2>Herramientas</h2>
             <ul>
-                <li>Python, R, SQL</li>
+                <li>R</li>
                 <li>Azure DevOps, AWS (S3, EC2)</li>
                 <li>Elasticsearch, Kibana, Hadoop, Spark, NodeRed</li>
+                <li>Flask, Streamlit</li>
                 <li>MySQL, MongoDB, Neo4j</li>
                 <li>Power BI, Looker Studio</li>
                 <li>Windows, Linux</li>
                 <li>PyTorch, sklearn, tensorflow, matplotlib</li>
-                <li>Microsoft Office, Git, GitHub</li>
+                <li>Microsoft Office</li>
             </ul>
         </section>
         <section id="experiencia">
             <h2>Experiencia</h2>
-            <h3>Data Scientist en prácticas - Real Sociedad de Fútbol (oct. 2023 - may. 2024)</h3>
-            <ul>
-                <li>Creación de métricas mediante consultas SQL.</li>
-                <li>Automatización de descarga de videos en Python.</li>
-                <li>Implementación de un algoritmo evolutivo basado en NSGA-II para resolver un problema de optimización multiobjetivo.</li>
-            </ul>
+            <div class="experience-item">
+                <div class="experience-left">
+                    <h4>10/2023 - 05/2024</h4>
+                    <p>Real Sociedad de Fútbol</p>
+                </div>
+                <div class="experience-right">
+                    <h3>Data Scientist en prácticas</h3>
+                    <p>Parte del departamento de análisis de datos, donde he trabajado en:</p>
+                    <ul>
+                        <li>Creación de métricas mediante consultas SQL y Python.</li>
+                        <li>Automatización de descarga de videos en Python mediante APIs.</li>
+                        <li>Implementación de un algoritmo evolutivo basado en NSGA-II para resolver un problema de optimización multiobjetivo.</li>
+                    </ul>
+                </div>
+            </div>
         </section>
         <section id="estudios">
             <h2>Estudios</h2>
             <h3>Business Data Analytics - Mondragon Unibertsitatea, Bilbao (2020-2024)</h3>
-            <h4>Proyectos Académicos</h4>
+            <h2>Proyectos Académicos</h2>
             <ul>
                 <li><strong>Construcción de un modelo de scoring y estimación de una PD PiT - Management Solutions:</strong></li>
                     <li>Bucketizado de la cartera de clientes, análisis y comparación de modelos, explicación de su funcionamiento (SHAP values).</li>

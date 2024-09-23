@@ -123,49 +123,70 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
+            height: 200px;
             overflow: hidden;
         }
+
         .experience-left {
-            background-color: #87ceeb; /* Skyblue similar al de Python */
-            color: white;
-            padding: 20px;
             width: 30%;
-            text-align: center;
+            background-color: #87ceeb; /* El fondo aún está por si la imagen no carga */
             display: flex;
-            flex-direction: column;
-            justify-content: center; /* Centra verticalmente */
-            align-items: center;     /* Centra horizontalmente */
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Esto asegura que la imagen no se salga del contenedor */
+            padding: 0; /* Elimina padding para que la imagen ocupe todo el espacio */
         }
-        .experience-left h4 {
-            margin: 0;
-            font-size: 18px;
-            font-weight: normal;
+
+        .experience-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Asegura que la imagen cubra todo el contenedor sin distorsión */
         }
-        .experience-left p {
-            margin: 10px 0 0;
-            font-size: 16px;
-            font-weight: bold;
-        }
+
         .experience-right {
             padding: 20px;
             width: 70%;
         }
+
         .experience-right h3 {
             margin-top: 0;
             font-size: 22px;
             color: #333;
         }
+
         .experience-right p {
             margin: 10px 0;
             font-size: 16px;
             color: #555;
         }
+
         .experience-right ul {
             margin: 10px 0 0;
             padding-left: 20px;
             list-style-type: disc;
             color: #555;
         }
+
+        .study-plan-link {
+            display: inline-flex;
+            align-items: center;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .study-plan-link:hover {
+            color: #0056b3;
+        }
+
+        .link-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 8px;
+        }
+
     </style>
     <script>
         function showSection(id) {
@@ -272,17 +293,74 @@
         <section id="estudios">
             <h2>Estudios</h2>
             <h3>Business Data Analytics - Mondragon Unibertsitatea, Bilbao (2020-2024)</h3>
+            <a href="https://www.mondragon.edu/es/grado-business-data-analytics/plan-de-estudios" target="_blank" class="study-plan-link">
+                <img src="img/mondragon_unibertsitatea_logo.jfif" alt="Icono del plan de estudios" class="link-icon"> Ver Plan de Estudios
+            </a>
             <h2>Proyectos Académicos</h2>
-            <ul>
-                <li><strong>Construcción de un modelo de scoring y estimación de una PD PiT - Management Solutions:</strong></li>
-                    <li>Bucketizado de la cartera de clientes, análisis y comparación de modelos, explicación de su funcionamiento (SHAP values).</li>
-                <li><strong>Optimización de la valoración de productos financieros - BBVA:</strong></li> 
-                    <li>Redes neuronales, series temporales, HTML y CSS, visualización de datos.</li>
-                <li><strong>Optimización del proceso de diseño de componentes de bushing mediante algoritmos de evolución - Cikautxo:</strong></li> 
-                    <li>Algoritmos de evolución, captura de datos y monitorización en tiempo real (Elasticsearch).</li>
-                <li><strong>Obtención de una estimación del impacto en ventas incrementales conseguido por una promoción - Eroski:</strong></li> 
-                    <li>Análisis de series temporales.</li>
-            </ul>
+            
+            <div class="experience-item">
+                <div class="experience-left">
+                    <img src="img/management_solutions_logo.jfif" alt="Management Solutions">
+                    
+                </div>
+                <div class="experience-right">
+                    <h3>Management Solutions</h3>
+                    <p>Construcción de un modelo de scoring y estimación de una PD PiT</p>
+                    <ul>
+                        <li>Bucketizado de la cartera de clientes</li>
+                        <li>Análisis y comparación de diferentes modelos y resultados</li>
+                        <li>Explicación del funcionamiento de los modelos mediante SHAP values</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-left">
+                    <img src="img/bbva_logo.jfif" alt="BBVA">
+                    
+                </div>
+                <div class="experience-right">
+                    <h3>BBVA</h3>
+                    <p>Optimización de la valoración de productos financieros que no tienen fórmula cerrada</p>
+                    <ul>
+                        <li>Redes neuronales</li>
+                        <li>Series temporales</li>
+                        <li>HTML, CSS y visualización de datos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-left">
+                    <img src="img/cikautxo_logo.jfif" alt="Cikautxo">
+                    
+                </div>
+                <div class="experience-right">
+                    <h3>Cikautxo</h3>
+                    <p>Optimización del proceso de diseño de componentes de bushing mediante algoritmos de evolución</p>
+                    <ul>
+                        <li>NSGA-II, SPEA2...</li>
+                        <li>Captura de datos y monitorización en tiempo real Elasticsearch</li>
+                        <li>Kibana</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-left">
+                    <img src="img/lookiero_logo.jfif" alt="Lookiero">
+                    
+                </div>
+                <div class="experience-right">
+                    <h3>Lookiero</h3>
+                    <p>Creación de conjuntos de prendas y su posterior recomendación a clientas.</p>
+                    <ul>
+                        <li>Creación de looks en base a la teoría de grafos.</li>
+                        <li>Sistema de recomendación que asigne distintos looks creados a los distintos tipos de clientas en base a sus gustos y características mediante un grafo</li>
+                    </ul>
+                </div>
+            </div>
+
         </section>
         <section id="contactar">
             <h2>Contactar</h2>

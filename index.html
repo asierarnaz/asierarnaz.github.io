@@ -1,380 +1,465 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asier Arnaz - Página Personal</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        header {
-            background-color: #bbbebe9e;
-            color: white;
-            text-align: center;
-            padding: 3em 0;
-            position: relative;
-        }
-        header img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border: 2px solid white;
-            position: relative;
-            top: 0; 
-        }
-        header h1 {
-            margin-top: 1em; 
-        }
-        .social-buttons {
-            text-align: center;
-            margin-top: 1em; 
-        }
-        nav {
-            background-color: #333;
-            overflow: hidden;
-            text-align: center;
-        }
-        nav a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-        section {
-            padding: 20px;
-            margin: 20px 0;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: none; /* Ocultar todas las secciones por defecto */
-        }
-        h2 {
-            color: #63929b;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            overflow: hidden;
-            padding-bottom: 60px; /* Asegura que el contenido no sea ocultado por el footer */
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            width: 100%;
-            bottom: 0;
-            position: relative;
-        }
-        .social-buttons a {
-            margin: 0 10px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .social-buttons img {
-            width: 50px;
-            height: 50px;
-        }
-        ul {
-            line-height: 1.6; /* Ajusta el interlineado entre los elementos <li> */
-        }
-        .skills-container {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .skill {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-        .skill-bar {
-            width: 70%;
-            background-color: #e0e0e0;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 0 10px;
-        }
-        .skill-level {
-            height: 10px;
-            background-color: #76c7c0;
-            border-radius: 10px;
-        }
-        .percentage {
-            min-width: 40px;
-            text-align: right;
-        }
-        .experience-item {
-            display: flex;
-            background-color: #f5f5f5;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            height: 200px;
-            overflow: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asier Arnaz - Página Personal</title>
+  <!-- 1. Importamos la fuente Roboto desde Google Fonts para un look moderno -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    /* 2. Paleta de colores profesional y fuente moderna */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7f6;
+      color: #333;
+    }
+    /* 3. Encabezado con fondo azul oscuro para mayor profesionalismo */
+    header {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 3em 0;
+    }
+    header img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border: 3px solid white;
+    }
+    header h1 {
+      margin-top: 1em;
+    }
+    .social-buttons {
+      text-align: center;
+      margin-top: 1em;
+    }
+    /* 4. Ajuste para hacer los iconos de redes sociales más pequeños */
+    .social-buttons img {
+      width: 30px;
+      height: 30px;
+    }
+    /* 5. Menú de navegación fijo para mayor accesibilidad */
+    nav {
+      background-color: #34495e;
+      overflow: hidden;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    nav a {
+      display: inline-block;
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    nav a:hover {
+      background-color: #1abc9c;
+    }
+    /* 6. Contenedor principal con margen superior para no quedar oculto detrás del menú fijo */
+    .container {
+      width: 80%;
+      margin: auto;
+      padding-top: 80px;
+    }
+    /* 7. Secciones con transición suave al mostrarse */
+    section {
+      padding: 20px;
+      margin: 20px 0;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    h2 {
+      color: #2980b9;
+    }
+    /* 8. Estilos para presentar las especialidades como tarjetas */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .skill-card {
+      background: #ecf0f1;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      flex: 1 1 calc(33.33% - 20px);
+      text-align: center;
+    }
+    /* 9. Estilos para la flip card de experiencia */
+    /* Asegúrate de mantener el efecto flip */
+.flip-card {
+  background-color: transparent;
+  width: 450px; /* O el ancho que prefieras para que se acomoden varias en línea */
+  height: 400px;
+  perspective: 1000px;
+  cursor: pointer;
+}
 
-        .experience-left {
-            width: 30%;
-            background-color: #87ceeb; /* El fondo aún está por si la imagen no carga */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden; /* Esto asegura que la imagen no se salga del contenedor */
-            padding: 0; /* Elimina padding para que la imagen ocupe todo el espacio */
-        }
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
 
-        .experience-left img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Asegura que la imagen cubra todo el contenedor sin distorsión */
-        }
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
 
-        .experience-right {
-            padding: 20px;
-            width: 70%;
-        }
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
-        .experience-right h3 {
-            margin-top: 0;
-            font-size: 22px;
-            color: #333;
-        }
-        .experience-right p {
-            margin: 10px 0;
-            font-size: 16px;
-            color: #555;
-        }
-        .experience-right ul {
-            margin: 10px 0 0;
-            padding-left: 20px;
-            list-style-type: disc;
-            color: #555;
-        }
+/* Para el frente, se utiliza flex para organizar el contenido en columna */
+.flip-card-front {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 10px;
+}
 
-        .study-plan-link {
-            display: inline-flex;
-            align-items: center;
-            color: #007bff;
-            text-decoration: none;
-            font-size: 16px;
-            margin-top: 10px;
-            transition: color 0.3s ease;
-        }
+/* Contenedor para el texto */
+.card-text {
+  flex: 0 0 auto; /* Ocupa el espacio necesario */
+  text-align: center; /* O ajusta según prefieras */
+}
 
-        .study-plan-link:hover {
-            color: #0056b3;
-        }
+/* Contenedor para la imagen */
+.card-image {
+  flex: 1 1 auto; /* Ocupa el resto del espacio */
+  width: 100%;
+}
 
-        .link-icon {
-            width: 40px;
-            height: 40px;
-            margin-right: 8px;
-        }
+/* Ajusta la imagen: 100% del ancho y altura automática */
+.card-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
 
-    </style>
-    <script>
-        function showSection(id) {
-            // Ocultar todas las secciones
-            var sections = document.querySelectorAll('section');
-            sections.forEach(function(section) {
-                section.style.display = 'none';
-            });
+/* Estilos para la parte trasera */
+.flip-card-back {
+  background-color: #9c9c9c;
+  color: white;
+  transform: rotateY(180deg);
+  padding: 20px;
+  text-align: left;
+  overflow-y: auto;
+}
 
-            // Mostrar la sección seleccionada
-            document.getElementById(id).style.display = 'block';
-        }
+.flip-card-back h3 {
+  margin-top: 0;
+}
 
-        // Mostrar la primera sección por defecto
-        window.onload = function() {
-            showSection('sobre-mi');
-        };
-    </script>
+.flip-card-back ul {
+  margin: 10px 0 0 20px;
+  list-style-type: disc;
+}
+
+/* Contenedor para poner las tarjetas una al lado de la otra */
+.flip-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  justify-content: center;
+}
+
+    /* 12. Estilos para el enlace del plan de estudios */
+    .study-plan-link {
+      display: inline-flex;
+      align-items: center;
+      color: #007bff;
+      text-decoration: none;
+      font-size: 16px;
+      margin-top: 10px;
+      transition: color 0.3s ease;
+    }
+    .study-plan-link:hover {
+      color: #0056b3;
+    }
+    .link-icon {
+      width: 40px;
+      height: 40px;
+      margin-right: 8px;
+    }
+    .experience-item {
+      display: flex;            /* Activa el modo Flexbox */
+      align-items: flex-start;  /* Alinea el contenido en la parte superior (opcional) */
+      margin-bottom: 20px;      /* Separación entre elementos */
+    }
+    .experience-left img {
+      max-width: 150px;         /* Ajusta el ancho máximo de la imagen */
+      margin-right: 20px;       /* Espacio entre la imagen y el texto */
+    }
+    .experience-right {
+      flex: 1;                  /* Ocupa el resto del espacio disponible */
+    }
+    /* 13. Pie de página con fondo oscuro */
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 40px;
+    }
+    /* Ajuste en el interlineado de las listas */
+    ul {
+      line-height: 1.6;
+    }
+  </style>
+  <script>
+    // Función para mostrar la sección seleccionada con transición suave
+    function showSection(id) {
+      var sections = document.querySelectorAll('section');
+      sections.forEach(function(section) {
+        section.style.display = 'none';
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+      });
+      var activeSection = document.getElementById(id);
+      activeSection.style.display = 'block';
+      setTimeout(() => {
+        activeSection.style.opacity = '1';
+        activeSection.style.transform = 'translateY(0)';
+      }, 50);
+    }
+    // Mostrar la sección "Sobre mí" por defecto
+    window.onload = function() {
+      showSection('sobre-mi');
+    };
+  </script>
 </head>
 <body>
-    <header>
-        <img src="img/perfil.jpg" alt="Foto de Asier Arnaz">
-        <h1>Asier Arnaz</h1>
-        <div class="social-buttons">
-            <a href="https://www.linkedin.com/in/asier-arnaz-martin-587a26237/"><img src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Linkedin_unofficial_colored_svg-512.png" alt="LinkedIn"></a>
-            <a href="https://github.com/asierarnaz"><img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png" alt="GitHub"></a>
-        </div>
-    </header>
-    <nav>
-        <a href="javascript:showSection('sobre-mi')">Sobre mí</a>
-        <a href="javascript:showSection('herramientas')">Herramientas</a>
-        <a href="javascript:showSection('experiencia')">Experiencia</a>
-        <a href="javascript:showSection('estudios')">Estudios</a>
-        <a href="javascript:showSection('contactar')">Contactar</a>
-    </nav>
-    
-    <div class="container">
-        <section id="sobre-mi">
-            <h2>Sobre mí</h2>
-            <p>Soy una persona trabajadora con muchas ganas de adquirir nuevas habilidades y conocimientos en distintos ámbitos que me permitan crecer tanto personal como profesionalmente. Disfruto trabajar en equipo y fomentar la cooperación, sin perder la capacidad de gestionar tareas de manera independiente y proactiva.</p>
-            <p>A lo largo de mi formación en Business Data Analytics en Mondragon Unibertsitatea, he desarrollado habilidades técnicas clave en herramientas como <strong>Python</strong>, <strong>SQL</strong> y <strong>Power BI</strong>, siendo Python mi principal fortaleza. He trabajado con frameworks como Flask y Streamlit, y he explorado entornos más avanzados, como máquinas virtuales de Oracle en sistemas <strong>Linux</strong>, donde he usado herramientas como Node-RED, Elasticsearch, Kibana.</p>
-            <p>Durante mis estudios, he aplicado algoritmos de Machine Learning en varios sectores y problemas reales. Algunos de los proyectos más destacados se pueden encontrar en la sección de <strong>Estudios</strong>, y puedes ver más detalles sobre ellos en mi perfil de <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>.</p>
-            <p>No me delimito a un solo campo dentro del análisis de datos, ya que me siento cómodo trabajando en diversas áreas, desde la visualización hasta la modelización predictiva, buscando siempre aprender y adaptarme a nuevas tecnologías.</p>
-         </section>
-         
-        <section id="herramientas">
-            <h2>Especialidades</h2>
-            <div class="skills-container">
-                <div class="skill">
-                    <span>Python</span>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 90%;"></div>
-                    </div>
-                    <span class="percentage">90%</span>
-                </div>
-                <div class="skill">
-                    <span>SQL</span>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 80%;"></div>
-                    </div>
-                    <span class="percentage">80%</span>
-                </div>
-                <div class="skill">
-                    <span>Power BI</span>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 70%;"></div>
-                    </div>
-                    <span class="percentage">70%</span>
-                </div>
-                <div class="skill">
-                    <span>Git | GitHub</span>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 90%;"></div>
-                    </div>
-                    <span class="percentage">90%</span>
-                </div>
-            </div>
-            <h2>Herramientas</h2>
-            <ul>
-                <li>R</li>
-                <li>Azure DevOps, AWS (S3, EC2)</li>
-                <li>Elasticsearch, Kibana, Hadoop, Spark, NodeRed</li>
-                <li>Flask, Streamlit</li>
-                <li>MySQL, MongoDB, Neo4j</li>
-                <li>Power BI, Looker Studio</li>
-                <li>Windows, Linux</li>
-                <li>PyTorch, sklearn, tensorflow, matplotlib</li>
-                <li>Microsoft Office</li>
-            </ul>
-        </section>
-        <section id="experiencia">
-            <h2>Experiencia</h2>
-            <div class="experience-item">
-                <div class="experience-left">
-                    <h4>10/2023 - 05/2024</h4>
-                    <p>Real Sociedad de Fútbol</p>
-                </div>
-                <div class="experience-right">
-                    <h3>Data Scientist en prácticas</h3>
-                    <p>Parte del departamento de análisis de datos, donde he trabajado en:</p>
-                    <ul>
-                        <li>Creación de métricas mediante consultas SQL y Python.</li>
-                        <li>Automatización de descarga de videos en Python mediante APIs.</li>
-                        <li>Implementación de un algoritmo evolutivo basado en NSGA-II para resolver un problema de optimización multiobjetivo.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <section id="estudios">
-            <h2>Estudios</h2>
-            <h3>Business Data Analytics - Mondragon Unibertsitatea, Bilbao (2020-2024)</h3>
-            <a href="https://www.mondragon.edu/es/grado-business-data-analytics/plan-de-estudios" target="_blank" class="study-plan-link">
-                <img src="img/mondragon_unibertsitatea_logo.jfif" alt="Icono del plan de estudios" class="link-icon"> Ver Plan de Estudios
-            </a>
-            <h2>Proyectos Académicos</h2>
-            
-            <div class="experience-item">
-                <div class="experience-left">
-                    <img src="img/management_solutions_logo.jfif" alt="Management Solutions">
-                    
-                </div>
-                <div class="experience-right">
-                    <h3>Management Solutions</h3>
-                    <p>Construcción de un modelo de scoring y estimación de una PD PiT</p>
-                    <ul>
-                        <li>Bucketizado de la cartera de clientes</li>
-                        <li>Análisis y comparación de diferentes modelos y resultados</li>
-                        <li>Explicación del funcionamiento de los modelos mediante SHAP values</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-left">
-                    <img src="img/bbva_logo.jfif" alt="BBVA">
-                    
-                </div>
-                <div class="experience-right">
-                    <h3>BBVA</h3>
-                    <p>Optimización de la valoración de productos financieros que no tienen fórmula cerrada</p>
-                    <ul>
-                        <li>Redes neuronales</li>
-                        <li>Series temporales</li>
-                        <li>HTML, CSS y visualización de datos</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-left">
-                    <img src="img/cikautxo_logo.jfif" alt="Cikautxo">
-                    
-                </div>
-                <div class="experience-right">
-                    <h3>Cikautxo</h3>
-                    <p>Optimización del proceso de diseño de componentes de bushing mediante algoritmos de evolución</p>
-                    <ul>
-                        <li>NSGA-II, SPEA2...</li>
-                        <li>Captura de datos y monitorización en tiempo real Elasticsearch</li>
-                        <li>Kibana</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-left">
-                    <img src="img/lookiero_logo.jfif" alt="Lookiero">
-                    
-                </div>
-                <div class="experience-right">
-                    <h3>Lookiero</h3>
-                    <p>Creación de conjuntos de prendas y su posterior recomendación a clientas.</p>
-                    <ul>
-                        <li>Creación de looks en base a la teoría de grafos.</li>
-                        <li>Sistema de recomendación que asigne distintos looks creados a los distintos tipos de clientas en base a sus gustos y características mediante un grafo</li>
-                    </ul>
-                </div>
-            </div>
-
-        </section>
-        <section id="contactar">
-            <h2>Contactar</h2>
-            <p>Teléfono: +34 688 81 78 06</p>
-            <p>Email: asierarnaz@gmail.com</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/asierarnazmartin">Asier Arnaz Martin</a></p>
-            <p>Ubicación: Andoain, Gipuzkoa, 20140</p>
-        </section>
+  <header>
+    <img src="img/perfil.jpg" alt="Foto de Asier Arnaz">
+    <h1>Asier Arnaz</h1>
+    <div class="social-buttons">
+      <a href="https://www.linkedin.com/in/asier-arnaz-martin-587a26237/">
+        <img src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Linkedin_unofficial_colored_svg-512.png" alt="LinkedIn">
+      </a>
+      <a href="https://github.com/asierarnaz">
+        <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png" alt="GitHub">
+      </a>
     </div>
-    <footer>
-        <p>&copy; 2024 Asier Arnaz</p>
-    </footer>
+  </header>
+  <nav>
+    <a href="javascript:showSection('sobre-mi')">Sobre mí</a>
+    <a href="javascript:showSection('herramientas')">Herramientas</a>
+    <a href="javascript:showSection('experiencia')">Experiencia</a>
+    <a href="javascript:showSection('estudios')">Estudios</a>
+    <a href="javascript:showSection('contactar')">Contactar</a>
+  </nav>
+  
+  <div class="container">
+    <!-- Sección "Sobre mí" -->
+    <section id="sobre-mi">
+      <h2>Sobre mí</h2>
+      <p>Soy una persona trabajadora con muchas ganas de adquirir nuevas habilidades y conocimientos en distintos ámbitos que me permitan crecer tanto personal como profesionalmente. Disfruto trabajar en equipo y fomentar la cooperación, sin perder la capacidad de gestionar tareas de manera independiente y proactiva.</p>
+      <p>A lo largo de mi formación en Business Data Analytics en Mondragon Unibertsitatea, he desarrollado habilidades técnicas clave en herramientas como <strong>Python</strong>, <strong>SQL</strong> y <strong>Power BI</strong>, siendo Python mi principal fortaleza. He trabajado con frameworks como Flask y Streamlit, y he explorado entornos más avanzados, como máquinas virtuales de Oracle en sistemas <strong>Linux</strong>, donde he usado herramientas como Node-RED, Elasticsearch y Kibana.</p>
+      <p>Durante mis estudios, he aplicado algoritmos de Machine Learning en varios sectores y problemas reales. Algunos de los proyectos más destacados se pueden encontrar en la sección de <strong>Estudios</strong>, y puedes ver más detalles sobre ellos en mi perfil de <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>.</p>
+      <p>No me delimito a un solo campo dentro del análisis de datos, ya que me siento cómodo trabajando en diversas áreas, desde la visualización hasta la modelización predictiva, buscando siempre aprender y adaptarme a nuevas tecnologías.</p>
+    </section>
+    
+    <!-- Sección "Herramientas / Especialidades" -->
+    <section id="herramientas">
+      <h2>Especialidades</h2>
+      <div class="skills-container">
+        <div class="skill-card">
+          <h3>Python</h3>
+          <p>He programado en Python a lo largo de más de 3 años durante mi época académica. En este tiempo he adquirido un profundo conocimiento en las librerías básicas para el procesamiento de datos (Pandas, Numpy, Matplotlib...) y en las principales para Machine Learning (sklearn, tensorflow...). Además, tengo experiencia en frameworks como Flask y Streamlit, y en el manejo de APIs.</p>
+        </div>
+        <div class="skill-card">
+          <h3>SQL</h3>
+          <p>He trabajado con SQL para la manipulación y consulta de datos en bases de datos relacionales como MySQL y no relacionales como MongoDB, optimizando consultas y diseñando esquemas eficientes.</p>
+        </div>
+        <div class="skill-card">
+          <h3>Power BI</h3>
+          <p>He utilizado Power BI para crear dashboards interactivos y reportes dinámicos, conectando diversas fuentes de datos y utilizando DAX para modelar información y optimizar la toma de decisiones.</p>
+        </div>
+        <div class="skill-card">
+          <h3>Git, GitHub</h3>
+          <p>Utilizo Git como sistema de control de versiones, colaborando en proyectos a través de GitHub y siguiendo buenas prácticas en la gestión de ramas y resolución de conflictos.</p>
+        </div>
+        <div class="skill-card">
+          <h3>Herramientas adicionales</h3>
+          <p>Conozco herramientas como R, Azure DevOps, AWS (S3, EC2), Elasticsearch, Kibana, Hadoop, Spark, NodeRed, MySQL, MongoDB, Neo4j, Power BI, Looker Studio y tengo experiencia en entornos Windows y Linux.</p>
+        </div>
+      </div>
+      <!-- Lista complementaria de herramientas -->
+<!--<h2>Herramientas</h2>-->
+<!--<ul>-->
+<!--  <li>R</li>-->
+<!--  <li>Azure DevOps, AWS (S3, EC2)</li>-->
+<!--  <li>Elasticsearch, Kibana, Hadoop, Spark, NodeRed</li>-->
+<!--  <li>Flask, Streamlit</li>-->
+<!--  <li>MySQL, MongoDB, Neo4j</li>-->
+<!--  <li>Power BI, Looker Studio</li>-->
+<!--  <li>Windows, Linux</li>-->
+<!--  <li>Microsoft Office</li>-->
+<!--</ul>-->
+  </section>
+    
+    <!-- Sección "Experiencia" -->
+  <section id="experiencia">
+  <h2>Experiencia</h2>
+  
+
+  <!-- Flip Card para las prácticas en Real Sociedad -->
+    <div class="flip-card-container">
+      <div class="flip-card" onclick="this.classList.toggle('flipped');">
+        <div class="flip-card-inner">
+          <!-- Lado frontal: muestra el contenido -->
+          <div class="flip-card-front">
+            <div class="card-text">
+              <h3>Real Sociedad de Fútbol</h3>
+              <h5>10/2023 - 06/2024</h5>
+              <h4>Data Scientist en prácticas</h4>
+            </div>
+            <div class="card-image">
+              <img src="img/Real-Sociedad-Logo.png" alt="Imagen de Real Sociedad">
+            </div>
+          </div>
+          <!-- Lado trasero: muestra la información al girar -->
+          <div class="flip-card-back">
+            <h3>Data Scientist en prácticas</h3>
+            <p>Parte del departamento de análisis de datos, donde he trabajado en:</p>
+            <ul>
+              <li>Creación de métricas mediante consultas SQL y Python.</li>
+              <li>Automatización de descarga de videos en Python mediante APIs.</li>
+              <li>Implementación de un algoritmo evolutivo basado en NSGA-II para resolver un problema de optimización multiobjetivo.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Puedes agregar aquí la siguiente tarjeta de manera similar -->
+
+
+      <div class="flip-card" onclick="this.classList.toggle('flipped');">
+        <div class="flip-card-inner">
+          <!-- Lado frontal: muestra el contenido -->
+          <div class="flip-card-front">
+            <div class="card-text">
+              <h3>Oreka IT</h3>
+              <h5>11/2024 - actualidad</h5>
+              <h4>Data Analyst</h4>
+            </div>
+            <div class="card-image">
+              <img src="img/orekait.png" alt="Imagen de Orekait">
+            </div>
+          </div>
+          <!-- Lado trasero: muestra la información al girar -->
+          <div class="flip-card-back">
+            <h3>Consultor SAP BI</h3>
+            <p>Como parte del departamento de Analytics, soy ABAP Developer, participando en:</p>
+            <ul>
+              <li>Proyectos de desarrollo en ABAP.</li>
+              <li>Implementación de soluciones SAP BI.</li>
+              <li>Dashboards con Power BI para la toma de decisiones estratégicas para empresas de distintos sectores.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      
+    </section>
+
+    <!-- Sección "Estudios" y "Proyectos Académicos" -->
+    <section id="estudios">
+      <h2>Estudios</h2>
+      <h3>Business Data Analytics - Mondragon Unibertsitatea, Bilbao (2020-2024)</h3>
+      <a href="https://www.mondragon.edu/es/grado-business-data-analytics/plan-de-estudios" target="_blank" class="study-plan-link">
+        <img src="img/mondragon_unibertsitatea_logo.jfif" alt="Icono del plan de estudios" class="link-icon"> Ver Plan de Estudios
+      </a>
+      <h2>Proyectos Académicos</h2>
+      <div class="experience-item">
+        <div class="experience-left">
+          <img src="img/management_solutions_logo.jfif" alt="Management Solutions">
+        </div>
+        <div class="experience-right">
+          <h3>Management Solutions</h3>
+          <p>Construcción de un modelo de scoring y estimación de una PD PiT</p>
+          <ul>
+            <li>Bucketizado de la cartera de clientes</li>
+            <li>Análisis y comparación de diferentes modelos y resultados</li>
+            <li>Explicación del funcionamiento de los modelos mediante SHAP values</li>
+          </ul>
+        </div>
+      </div>
+      <div class="experience-item">
+        <div class="experience-left">
+          <img src="img/bbva_logo.jfif" alt="BBVA">
+        </div>
+        <div class="experience-right">
+          <h3>BBVA</h3>
+          <p>Optimización de la valoración de productos financieros que no tienen fórmula cerrada</p>
+          <ul>
+            <li>Redes neuronales</li>
+            <li>Series temporales</li>
+            <li>HTML, CSS y visualización de datos</li>
+          </ul>
+        </div>
+      </div>
+      <div class="experience-item">
+        <div class="experience-left">
+          <img src="img/cikautxo_logo.jfif" alt="Cikautxo">
+        </div>
+        <div class="experience-right">
+          <h3>Cikautxo</h3>
+          <p>Optimización del proceso de diseño de componentes de bushing mediante algoritmos de evolución</p>
+          <ul>
+            <li>NSGA-II, SPEA2...</li>
+            <li>Captura de datos y monitorización en tiempo real con Elasticsearch</li>
+            <li>Kibana</li>
+          </ul>
+        </div>
+      </div>
+      <div class="experience-item">
+        <div class="experience-left">
+          <img src="img/lookiero_logo.jfif" alt="Lookiero">
+        </div>
+        <div class="experience-right">
+          <h3>Lookiero</h3>
+          <p>Creación de conjuntos de prendas y su posterior recomendación a clientas.</p>
+          <ul>
+            <li>Creación de looks en base a la teoría de grafos.</li>
+            <li>Sistema de recomendación que asigne distintos looks creados a los distintos tipos de clientas en base a sus gustos y características mediante un grafo</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Sección "Contactar" -->
+    <section id="contactar">
+      <h2>Contactar</h2>
+      <p>Teléfono: +34 688 81 78 06</p>
+      <p>Email: asierarnaz@gmail.com</p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/asierarnazmartin">Asier Arnaz Martin</a></p>
+      <p>Ubicación: Andoain, Gipuzkoa, 20140</p>
+    </section>
+  </div>
+  <footer>
+    <p>&copy; 2024 Asier Arnaz</p>
+  </footer>
 </body>
 </html>
